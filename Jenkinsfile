@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withDotNet()
-                dotnetBuild()
+                withDotNet() {
+                    dotnetBuild()
+                }
             }
         }
     }
