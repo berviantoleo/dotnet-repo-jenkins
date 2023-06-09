@@ -1,11 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'dotnet:6.0-alpine'
+        }
+    }
     stages {
         stage('Build') {
             steps {
-                withDotNet() {
-                    dotnetBuild()
-                }
+                sh 'dotnet --version'
+                sh 'dotnet build'
             }
         }
     }
